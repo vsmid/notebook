@@ -31,7 +31,7 @@ It is not a database. You can still store a lot of data and search fast enough b
 After all, it is a notebook ;-)
 
 ## Usage
-Just download the latest **nb** binary executable from releases page.
+Just download the latest **nb** binary executable from [releases](https://github.com/vsmid/notebook/releases) page.
 
 #### Add new record
 ```bash
