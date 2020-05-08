@@ -1,0 +1,2 @@
+mvn clean package
+$JAVA_HOME/bin/jlink --module-path "./target/classes" --add-modules hr.yeti.notebook,java.logging,java.base --output ./nb-module

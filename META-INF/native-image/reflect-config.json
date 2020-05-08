@@ -1,0 +1,30 @@
+[
+    {
+        "name": "hr.yeti.notebook.cli.command.Add",
+        "methods": [{
+                "name": "<init>",
+                "parameterTypes": ["java.util.Map"]
+            }]
+    },
+    {
+        "name": "hr.yeti.notebook.cli.command.Help",
+        "methods": [{
+                "name": "<init>",
+                "parameterTypes": ["java.util.Map"]
+            }]
+    },
+    {
+        "name": "hr.yeti.notebook.cli.command.Find",
+        "methods": [{
+                "name": "<init>",
+                "parameterTypes": ["java.util.Map"]
+            }]
+    },
+    {
+        "name": "hr.yeti.notebook.cli.command.Info",
+        "methods": [{
+                "name": "<init>",
+                "parameterTypes": ["java.util.Map"]
+            }]
+    }
+]
