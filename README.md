@@ -86,6 +86,7 @@ Just download the latest **nb** binary executable from [releases](https://github
 ./nb find -t java -l 1 -p 2
 ```
 ![Select page](assets/select_page.png)
+
 *Once you have selected page, copy to clipboard, delete, open in browser and show extended summary all work the same as without using page*
 ```bash
 # if it yields single result -o flag does not require id
