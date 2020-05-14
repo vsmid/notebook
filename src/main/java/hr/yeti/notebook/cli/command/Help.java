@@ -7,9 +7,9 @@ import hr.yeti.notebook.cli.Command;
 import hr.yeti.notebook.cli.Option;
 import java.io.IOException;
 import static java.lang.System.out;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Help extends Command {
 
@@ -38,9 +38,10 @@ public class Help extends Command {
 
         commands.forEach(command -> {
             out.println(Color.YELLOW + command.commandName() + Color.RESET + " " + command.usage());
-            command.options().entrySet().forEach((e) -> {
-                out.println(" -" + e.getKey() + " " + e.getValue().getDescription() + " " + String.format("(%s)", e.getValue().isMandatory() ? "mandatory" : "optional"));
-            });
+            command.options().entrySet()
+                .forEach((e) -> {
+                    out.println(" -" + e.getKey() + " " + e.getValue().getDescription() + " " + String.format("(%s)", e.getValue().isMandatory() ? "mandatory" : "optional"));
+                });
         });
 
         out.println("\nUniversal command options");
@@ -50,13 +51,9 @@ public class Help extends Command {
     }
 
     public List<Command> getCommands() throws IOException {
-        List<Command> commands = new ArrayList<>();
-
-        commands.add(argsParser.parse(Add.class.getSimpleName()));
-        commands.add(argsParser.parse(Find.class.getSimpleName()));
-        commands.add(argsParser.parse(Help.class.getSimpleName()));
-        commands.add(argsParser.parse(Info.class.getSimpleName()));
-
-        return commands;
+        return List.of(Add.class, Find.class, Help.class, Info.class)
+            .stream()
+            .map(command -> argsParser.parse(command.getSimpleName()))
+            .collect(Collectors.toList());
     }
 }
