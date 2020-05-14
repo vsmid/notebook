@@ -95,3 +95,10 @@ Just download the latest **nb** binary executable from [releases](https://github
 ./nb find -t java -l 1 -p 2 -o 1
 # etc.
 ```
+## Hint
+If you don't want to write command flags all the time you can create aliases to speed thing up a bit (you can put them in ~/.bash_profile, ~/.zshrc etc.).
+```bash
+alias nb="/usr/local/bin/nb" # global nb
+alias nbf="/usr/local/bin/nb find -t" # nb with regular find command
+alias nbr="/usr/local/bin/nb find -r -t" # nb with regex find command
+```
