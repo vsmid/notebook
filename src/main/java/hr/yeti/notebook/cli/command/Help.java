@@ -5,15 +5,8 @@ import hr.yeti.notebook.cli.ArgsToCommandParser;
 import hr.yeti.notebook.cli.Color;
 import hr.yeti.notebook.cli.Command;
 import hr.yeti.notebook.cli.Option;
-import java.io.File;
 import java.io.IOException;
 import static java.lang.System.out;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -59,19 +52,10 @@ public class Help extends Command {
     public List<Command> getCommands() throws IOException {
         List<Command> commands = new ArrayList<>();
 
-        Path commandsDir = Paths.get("").toAbsolutePath()
-            .resolve("src").resolve("main").resolve("java")
-            .resolve(getClass().getPackageName().replaceAll("\\.", File.separator));
-
-        Files.walkFileTree(commandsDir, new SimpleFileVisitor<Path>() {
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                String commandName = getCommandName(file);
-                Command command = argsParser.parse(commandName);
-                commands.add(command);
-                return FileVisitResult.CONTINUE;
-            }
-        });
+        commands.add(argsParser.parse(Add.class.getSimpleName()));
+        commands.add(argsParser.parse(Find.class.getSimpleName()));
+        commands.add(argsParser.parse(Help.class.getSimpleName()));
+        commands.add(argsParser.parse(Info.class.getSimpleName()));
 
         return commands;
     }
